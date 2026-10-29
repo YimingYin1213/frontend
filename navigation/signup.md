@@ -74,7 +74,7 @@ search_exclude: true
 </div>
 
 <script type="module">
-  import { javaURI, pythonURI, fetchOptions } from '{{ site.baseurl }}/assets/js/api/config.js';
+  import { pythonURI, fetchOptions } from '{{ site.baseurl }}/assets/js/api/config.js';
 
   // Sign up function to handle form submission
   window.signup = async function() {
@@ -90,28 +90,20 @@ search_exclude: true
       kasm_server_needed: false,
     };
 
-    const springURL = `${javaURI}/api/person/create`;
     const flaskURL = `${pythonURI}/api/user`;
 
-    // Use shared defaults from config.js so credentials/CORS behavior is consistent site-wide.
-    const springRequest = {
-      ...fetchOptions,
-      method: "POST",
-      body: JSON.stringify(signupData),
-    };
-
+    // Flask is the source of truth for authentication and account creation.
     const flaskRequest = {
       ...fetchOptions,
       method: "POST",
       body: JSON.stringify(signupData),
     };
 
-    console.log("Sending signup requests:", { springURL, flaskURL, springRequest, flaskRequest });
+    console.log("Sending signup request to Flask:", flaskURL);
 
     signupMessage.innerText = "Signing up...";
 
     try {
-      // Flask signup is primary because login/auth reads from Flask user records.
       const flaskResponse = await fetch(flaskURL, flaskRequest);
       const flaskRaw = await flaskResponse.text();
       let flaskData;
@@ -127,18 +119,6 @@ search_exclude: true
       }
 
       signupMessage.innerText = "Sign up successful!";
-
-      // Spring write is best-effort so API/MVC path issues do not block signup.
-      fetch(springURL, springRequest)
-        .then(async (springResponse) => {
-          const springRaw = await springResponse.text();
-          if (!springResponse.ok) {
-            console.warn("Spring signup failed:", springResponse.status, springRaw);
-          }
-        })
-        .catch((springError) => {
-          console.warn("Spring signup error:", springError.message);
-        });
     } catch (error) {
       signupMessage.innerText = "Sign up failed: " + error.message;
       console.error("Error during signup:", error);

@@ -174,72 +174,32 @@ hide_title: true
     }
     window.signup = function () {
         const signupButton = document.querySelector(".auth-signup-card button");
-        // Disable the button and change its color
+        const signupMessage = document.getElementById("signupMessage");
         signupButton.disabled = true;
         signupButton.classList.add("disabled");
-        const signupOptionsPython = {
-            URL: `${pythonURI}/api/user`,
+        fetch(`${pythonURI}/api/user`, {
+            ...fetchOptions,
             method: "POST",
-            cache: "no-cache",
-            body: {
-                name: document.getElementById("name").value,
-                uid: document.getElementById("signupUid").value,
-                email: document.getElementById("signupEmail").value,
-                password: document.getElementById("signupPassword").value,
-            }
-        };
-        const signupOptionsJava = {
-            URL: `${javaURI}/api/person/create`,
-            method: "POST",
-            cache: "no-cache",
-            headers: new Headers({
-                "Content-Type": "application/json"
-            }),
             body: JSON.stringify({
+                name: document.getElementById("name").value,
                 uid: document.getElementById("signupUid").value,
                 email: document.getElementById("signupEmail").value,
-                dob: "11-01-2024",  // Static date for now, you can modify this
-                name: document.getElementById("name").value,
                 password: document.getElementById("signupPassword").value,
             })
-        };
-        fetch(signupOptionsJava.URL, signupOptionsJava)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    document.getElementById("signupMessage").innerText = "Sign up successful!";
-                } else {
-                    document.getElementById("signupMessage").innerText = "Sign up failed: " + data.message;
-                }
-            })
-            .catch(error => {
-                document.getElementById("signupMessage").innerText = "Error: " + error.message;
-                console.error('Error during signup:', error);
-            });
-        fetch(signupOptionsPython.URL, {
-            method: signupOptionsPython.method,
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(signupOptionsPython.body)
         })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Signup failed on one or both backends: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`Signup failed (${response.status})`);
                 return response.json();
             })
             .then(data => {
-                document.getElementById("signupMessage").textContent = "Signup successful!";
-                // Optionally redirect to login page or handle as needed
-                // window.location.href = '{{site.baseurl}}/profile';
+                if (data.success === false) throw new Error(data.message || "Signup failed");
+                signupMessage.textContent = "Signup successful! You can now sign in.";
             })
             .catch(error => {
                 console.error("Signup Error:", error);
-                document.getElementById("signupMessage").textContent = `Signup Error: ${error.message}`;
-                // Re-enable the button if there is an error
+                signupMessage.textContent = `Signup Error: ${error.message}`;
                 signupButton.disabled = false;
-                signupButton.style.backgroundColor = ''; // Reset to default color
+                signupButton.classList.remove("disabled");
             });
     }
     function javaDatabase() {
