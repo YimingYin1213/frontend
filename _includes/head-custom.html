@@ -55,6 +55,7 @@
   imports _sass/open-coding/user-preferences.scss via open-coding/_main.scss.
 {%- endcomment -%}
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{% if page.safe_passage %}<link rel="stylesheet" href="{{ '/assets/css/safe-passage.css' | relative_url }}">{% endif %}
 <script src="{{ site.baseurl }}/assets/js/user-preferences.js"></script>
 <!-- Set up javaURI globally for OCS Analytics Tracker -->
 <script>

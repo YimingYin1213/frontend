@@ -1,9 +1,18 @@
 ---
 title: Calendar
 permalink: /student/calendar
-layout: aesthetihawk
+layout: page
 active_tab: calendar
+safe_passage: true
+safe_passage_calendar: true
+hide_title: true
 ---
+<section class="safe-passage-calendar section-wrap" aria-labelledby="calendar-page-title">
+  <div class="safe-passage-calendar-heading">
+    <p class="eyebrow">Plan with confidence</p>
+    <h1 id="calendar-page-title">Community <em>calendar</em></h1>
+    <p>View upcoming events and important dates in one place.</p>
+  </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
 <!-- Tailwind CSS CDN -->
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -73,11 +82,11 @@ active_tab: calendar
                     if (calendarEvents !== null) {
                         calendarEvents.forEach(event => {
                             try {
-                                let color = "#808080";
+                                let color = "#eee7f7";
                                 if (event.class == "CSP") {
-                                    color = "#3788d8";
+                                    color = "#eee7f7";
                                 } else if (event.class == "CSSE") {
-                                    color = "#008000";
+                                    color = "#eee7f7";
                                 }
                                 allEvents.push({
                                     id: event.id,
@@ -103,7 +112,7 @@ active_tab: calendar
                                     title: assignment.name,
                                     description: assignment.description,
                                     start: formatDate(dueDate),
-                                    color: "#FFA500"
+                                    color: "#eee7f7"
                                 });
                             } catch (err) {
                                 console.error("Error loading assignment:", assignment, err);
@@ -471,3 +480,4 @@ active_tab: calendar
         });
     }
 </script>
+</section>

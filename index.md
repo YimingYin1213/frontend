@@ -1,88 +1,64 @@
 ---
-layout: post 
-title: Team Home 
-hide: true
-show_reading_time: false
+layout: page
+title: Safe Passage Heals | A new beginning is possible
+description: Safe Passage Heals helps women and children break the cycle of domestic abuse through healing, shelter, and empowerment in Southern California.
+permalink: /
+safe_passage: true
+hide_title: true
 ---
 
-Hi! Welcome to Team Aquatic CSP
+<main id="main-content" class="safe-passage-home">
+  <section class="hero section-wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true">✳</span> A safe beginning. A stronger tomorrow.</p>
+      <h1 id="hero-title">Every woman and child deserves a <em>safe passage</em> forward.</h1>
+      <p class="hero-intro">For more than 25 years, Safe Passage Heals has helped women and children move beyond domestic abuse and build lives rooted in safety, dignity, and possibility.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#our-work">Discover our work <span aria-hidden="true">→</span></a>
+        <a class="text-link" href="#our-story">Our story <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="hero-note"><span aria-hidden="true">♡</span> Healing takes time. You don't have to walk alone.</p>
+    </div>
+    <div class="hero-art" role="img" aria-label="Placeholder for a welcoming image of women and children in a hopeful, supportive setting">
+      <div class="art-sun"></div><div class="art-arch"></div>
+      <div class="art-caption"><span class="caption-dot"></span> A place to heal, grow, and begin again</div>
+      <span class="image-placeholder-label">Community image placeholder</span>
+      <span class="art-leaf art-leaf-one" aria-hidden="true"></span><span class="art-leaf art-leaf-two" aria-hidden="true"></span>
+    </div>
+  </section>
 
-### Development Environment
+  <section class="impact-band" aria-label="Our impact">
+    <div class="section-wrap impact-inner">
+      <div class="impact-heading"><span class="impact-star" aria-hidden="true">✳</span><div><p class="eyebrow">A legacy of hope</p><h2>Over 25 years<br>of impact.</h2></div></div>
+      <div class="impact-stat"><strong>2,000<span>+</span></strong><p>women and children<br>supported since 2000</p></div>
+      <div class="impact-stat"><strong>95<span>%</span></strong><p>client success rate in<br>breaking the cycle</p></div>
+      <div class="impact-stat"><strong>6</strong><p>months of support through<br>Stepping Stones to a New Life</p></div>
+    </div>
+  </section>
 
+  <section class="pillars-section section-wrap" id="our-work" aria-labelledby="pillars-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">How we create change</p><h2 id="pillars-title">Four pillars.<br><em>One safer future.</em></h2></div>
+      <p>We believe every person deserves to live free from violence and full of possibility. Together, we raise awareness, build peace, share kindness, and open doors through education.</p>
+    </div>
+    <div class="pillar-grid">
+      <article class="pillar-card pillar-awareness"><span class="pillar-number">01</span><span class="pillar-icon" aria-hidden="true">◌</span><h3>Raise awareness</h3><p>Our voices hold incredible value and power. We stand together against domestic violence and all forms of abuse, including at our community event, “Walk a Mile in Her Shoes.”</p><a href="#get-involved" class="card-link">Stand with us <span aria-hidden="true">→</span></a></article>
+      <article class="pillar-card pillar-peace"><span class="pillar-number">02</span><span class="pillar-icon" aria-hidden="true">☼</span><h3>Promote peace</h3><p>We champion respect, equality, and peace in every relationship. Safe Passage support groups help women rebuild self-worth and find the courage to take their next step.</p><a href="#get-involved" class="card-link">Find support <span aria-hidden="true">→</span></a></article>
+      <article class="pillar-card pillar-kindness"><span class="pillar-number">03</span><span class="pillar-icon" aria-hidden="true">♡</span><h3>Speak kindness</h3><p>We empower children of all ages to speak up against bullying with kind words. With the Luisa Diaz Foundation, “Kindness is Cool” is bringing a message of care into schools.</p><a href="#get-involved" class="card-link">Spread kindness <span aria-hidden="true">→</span></a></article>
+      <article class="pillar-card pillar-education"><span class="pillar-number">04</span><span class="pillar-icon" aria-hidden="true">✦</span><h3>Educate to empower</h3><p>Knowledge is power. Life skills, financial literacy, career development, and mentorship give survivors the tools to rebuild, grow, and thrive.</p><a href="#get-involved" class="card-link">Explore our programs <span aria-hidden="true">→</span></a></article>
+    </div>
+  </section>
 
-> Coding starts with tools, explore these tools and procedures with a click.
+  <section class="story-section" id="our-story" aria-labelledby="story-title">
+    <div class="section-wrap story-inner">
+      <div class="story-art" role="img" aria-label="Placeholder for a portrait or archival image of founder Trish Steele">
+        <div class="story-art-shape"></div><span class="image-placeholder-label">Founder image placeholder</span><span class="story-art-note">Hope can start<br>at home.</span>
+      </div>
+      <div class="story-copy"><p class="eyebrow">Rooted in compassion since 2000</p><h2 id="story-title">A small act of care became a <em>pathway to possibility.</em></h2><p>Founded by domestic violence survivor Trish Steele, Safe Passage Heals began as a small ministry in her home. She wanted women and children to have the support she knew could help them break the cycle of abuse.</p><p>Today, our Southern California nonprofit continues that work through counseling, shelter, and our six-month <strong>Stepping Stones to a New Life</strong> program. Graduates move forward with steady employment, secure housing, and new possibilities for themselves and their children.</p><a class="button button-outline" href="#get-involved">Get to know us <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <a href="https://opencodingsociety.com" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #FA8072; border-radius: 6px; font-weight: 700; transition: all 0.3s;">
-        <img src="{{ '/favicon.ico' | relative_url }}" alt="OCS logo" style="width: 16px; height: 16px;">
-        OCS
-    </a>
-    <a href="https://github.com/Open-Coding-Society/portfolio" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #FFF; border-radius: 6px; font-weight: 700; transition: all 0.3s;">
-        <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-        GitHub
-    </a>
-    <a href="https://vscode.dev/" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #007ACC; border-radius: 6px; font-weight: 700; transition: all 0.3s;">
-        <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.34 0L5.66 5.39l-2.4-1.8L1.19 4.82v6.36l2.07 1.23 2.4-1.8L11.34 16 15 14.23V1.77L11.34 0zm.59 11.57l-3.86-3.54 3.86-3.54v7.08z"/>
-        </svg>
-        VSCode.dev
-    </a>
-</div>
-
-<br>
-
-### My Lessons
-
-> Foundations in Tech are essential, click to see some of my lesson creations.
-
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <a href="{{site.baseurl}}/code/javascript" style="text-decoration: none;">
-        <div style="background-color: var(--green); color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: transform 0.2s, box-shadow 0.2s;">
-           JS Basics
-        </div>
-    </a>
-    <a href="{{site.baseurl}}/game/essentials/variables" style="text-decoration: none;">
-        <div style="background-color: var(--blue); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: transform 0.2s, box-shadow 0.2s;">
-           JS Variables
-        </div>
-    </a>
-    <a href="{{site.baseurl}}/gamerunner" style="text-decoration: none;">
-        <div style="background-color: var(--warn); color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: transform 0.2s, box-shadow 0.2s;">
-           Gamerunner
-        </div>
-    </a>
-    <a href="{{site.baseurl}}/network/stack" style="text-decoration: none;">
-        <div style="background-color: var(--orange); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: transform 0.2s, box-shadow 0.2s;">
-           Networking
-        </div>
-    </a>
-</div>
-
-<br>
-
-### Class Progress
-
-> Here is my game progress through coding, click to see these in the browser
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <a href="{{site.baseurl}}/snake" class="btn">
-        Snake
-    </a>
-    <a href="{{site.baseurl}}/gamify/parallax" class="btn" style="background-color: var(--green); ">
-        Fish
-    </a>
-    <a href="{{site.baseurl}}/gamify" class="btn" style="background-color: var(--teal);">
-       Gamify
-    </a>
-    <a href="{{site.baseurl}}/cs-pathway" class="btn" style="background-color: var(--orange);">
-       CS Pathway
-    </a>
-     <a href="{{site.baseurl}}/capstone/poway-womens-club-ideation/" class="btn" style="background-color: var(--blue);">
-         Ideation Page
-     </a>
-</div>
-
-<br>
+  <section class="closing-section section-wrap" id="get-involved" aria-labelledby="closing-title">
+    <div class="closing-card"><span class="closing-flower" aria-hidden="true">✳</span><div><p class="eyebrow">There is a place for you here</p><h2 id="closing-title">Hope grows when we<br><em>move forward together.</em></h2><p>Whether you’re seeking support, giving your time, or standing with survivors, your next step can help make a safer future possible.</p></div><a class="button button-light" href="#our-work">See how we make a difference <span aria-hidden="true">→</span></a></div>
+  </section>
+</main>

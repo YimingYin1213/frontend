@@ -370,6 +370,74 @@
         color: inherit !important;
       }
     `;
+
+    // The Safe Passage pages use a fixed, accessible brand palette. Keep the
+    // global preference system from applying low contrast colors to their copy.
+    if (document.body?.classList.contains('safe-passage-site')) {
+      style.textContent += `
+        html.user-theme-active body.safe-passage-site .opencs_root * {
+          color: #302543 !important;
+        }
+        html.user-theme-active body.safe-passage-site,
+        html.user-theme-active body.safe-passage-site .page-content,
+        html.user-theme-active body.safe-passage-site .page-content .opencs_root {
+          color: #302543 !important;
+          background-color: #fff !important;
+        }
+        html.user-theme-active body.safe-passage-site .safe-passage-home h1,
+        html.user-theme-active body.safe-passage-site .safe-passage-home h2,
+        html.user-theme-active body.safe-passage-site .safe-passage-home h3,
+        html.user-theme-active body.safe-passage-site .safe-passage-home p,
+        html.user-theme-active body.safe-passage-site .safe-passage-home li,
+        html.user-theme-active body.safe-passage-site .safe-passage-home .pillar-card,
+        html.user-theme-active body.safe-passage-site .auth-main h1,
+        html.user-theme-active body.safe-passage-site .auth-main h2,
+        html.user-theme-active body.safe-passage-site .auth-main p,
+        html.user-theme-active body.safe-passage-site .auth-main label,
+        html.user-theme-active body.safe-passage-site .auth-main .security-note {
+          color: #302543 !important;
+        }
+        html.user-theme-active body.safe-passage-site .safe-passage-home h1 *,
+        html.user-theme-active body.safe-passage-site .safe-passage-home h2 *,
+        html.user-theme-active body.safe-passage-site .safe-passage-home h3 *,
+        html.user-theme-active body.safe-passage-site .safe-passage-home p *,
+        html.user-theme-active body.safe-passage-site .safe-passage-home a,
+        html.user-theme-active body.safe-passage-site .safe-passage-home a *,
+        html.user-theme-active body.safe-passage-site .auth-main h1 *,
+        html.user-theme-active body.safe-passage-site .auth-main h2 *,
+        html.user-theme-active body.safe-passage-site .auth-main p *,
+        html.user-theme-active body.safe-passage-site .auth-main label *,
+        html.user-theme-active body.safe-passage-site .site-header .page-link,
+        html.user-theme-active body.safe-passage-site .site-header .page-link * {
+          color: #302543 !important;
+        }
+        html.user-theme-active body.safe-passage-site .safe-passage-home .eyebrow,
+        html.user-theme-active body.safe-passage-site .safe-passage-home em,
+        html.user-theme-active body.safe-passage-site .safe-passage-home .impact-stat strong,
+        html.user-theme-active body.safe-passage-site .safe-passage-home .card-link,
+        html.user-theme-active body.safe-passage-site .auth-main .eyebrow,
+        html.user-theme-active body.safe-passage-site .auth-main em,
+        html.user-theme-active body.safe-passage-site .site-header .page-link {
+          color: #6844a1 !important;
+        }
+        html.user-theme-active body.safe-passage-site .site-header .safe-passage-cta,
+        html.user-theme-active body.safe-passage-site .site-header .safe-passage-cta span,
+        html.user-theme-active body.safe-passage-site .auth-main .safe-passage-submit,
+        html.user-theme-active body.safe-passage-site .auth-main .safe-passage-submit span,
+        html.user-theme-active body.safe-passage-site .safe-passage-home .button-primary {
+          color: #6844a1 !important;
+          background-color: #eee7f7 !important;
+          border-color: #d8cce5 !important;
+        }
+        html.user-theme-active body.safe-passage-site .safe-passage-home .story-art-note {
+          color: #302543 !important;
+        }
+        html.user-theme-active body.safe-passage-site .auth-main input {
+          color: #302543 !important;
+          background-color: #fff !important;
+        }
+      `;
+    }
   }
 
   // Google Translate integration

@@ -3,8 +3,13 @@
             {%- assign default_paths = site.pages | map: "path" -%}
             {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
             {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-            <a class="site-title" rel="author" href="{{ '/' | relative_url }}" data-value="{{ site.title | escape }}">
+            <a class="site-title{% if page.safe_passage %} safe-passage-brand{% endif %}" rel="author" href="{{ '/' | relative_url }}" data-value="{{ site.title | escape }}">
+                {% if page.safe_passage %}
+                <img id="site-logo" src="{{ '/images/Safe_Passage.png' | relative_url }}" alt="Safe Passage Heals logo">
+                <span class="safe-passage-brand-name"><strong>Safe Passage</strong><small>Heals</small></span>
+                {% else %}
                 <img id="site-logo" src="{{ site.baseurl }}/images/logo.png" alt="Logo">
+                {% endif %}
             </a>
 
             {%- if titles_size > 0 -%}
@@ -20,6 +25,28 @@
                 </label>
 
                 <div class="trigger">
+                    {% if page.safe_passage_calendar %}
+                    <a class="page-link" href="{{ '/' | relative_url }}">Home</a>
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-story">Our story</a>
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-work">Our work</a>
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-work">Programs</a>
+                    <a class="page-link safe-passage-cta" href="{{ '/' | relative_url }}#get-involved">Get involved</a>
+                    <a class="page-link safe-passage-login" href="{{ '/student/calendar' | relative_url }}" aria-current="page">Calendar</a>
+                    <a class="page-link safe-passage-login" href="{{ '/login' | relative_url }}">Log in</a>
+                    {% elsif page.safe_passage_auth %}
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-story">Our story</a>
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-work">Our work</a>
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-work">Programs</a>
+                    <a class="page-link safe-passage-cta" href="{{ '/' | relative_url }}#get-involved">Get involved</a>
+                    <a class="page-link safe-passage-login" href="{{ '/login' | relative_url }}" aria-current="page">Log in</a>
+                    {% elsif page.safe_passage %}
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-story">Our story</a>
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-work">Our work</a>
+                    <a class="page-link" href="{{ '/' | relative_url }}#our-work">Programs</a>
+                    <a class="page-link" href="{{ '/student/calendar' | relative_url }}">Calendar</a>
+                    <a class="page-link safe-passage-cta" href="{{ '/' | relative_url }}#get-involved">Get involved</a>
+                    <a class="page-link safe-passage-login" href="{{ '/login' | relative_url }}">Log in</a>
+                    {% else %}
                     {%- for path in site.minima.nav_pages -%}
                     {%- assign my_page = site.pages | where: "path", path | first -%}
                     {%- if my_page.title -%}
@@ -33,10 +60,11 @@
                     {%- endif -%}
                     {%- endfor -%}
                     <a id="loginArea" class="page-link" href="{{ site.baseurl }}/login">Login</a>
+                    {% endif %}
                 </div>
             </nav>
             {%- endif -%}
         </div>
     </header>
 
-    <script type="module" src="{{ site.baseurl }}/assets/js/api/login.js"></script>    
+    {% unless page.safe_passage %}<script type="module" src="{{ site.baseurl }}/assets/js/api/login.js"></script>{% endunless %}

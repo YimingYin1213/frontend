@@ -4,7 +4,7 @@
 
     {%- include head.html -%}
 
-    <body>
+    <body{% if page.safe_passage %} class="safe-passage-site{% if page.safe_passage_auth %} safe-passage-auth{% endif %}"{% endif %}>
         {%- include themes/minima/header.html -%}
 
         {% if page.microblog %}

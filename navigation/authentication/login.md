@@ -4,112 +4,42 @@ title: Login
 permalink: /login
 search_exclude: true
 show_reading_time: false
+safe_passage: true
+safe_passage_auth: true
+hide_title: true
 ---
-<style>
-    .submit-button {
-        width: 100%;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-    .login-container {
-        display: flex;
-        /* Use flexbox for side-by-side layout */
-        justify-content: space-between;
-        /* Add space between the cards */
-        align-items: flex-start;
-        /* Align items to the top */
-        gap: 20px;
-        /* Add spacing between the cards */
-        flex-wrap: nowrap;
-        /* Prevent wrapping of the cards */
-    }
-
-    .login-card,
-    .signup-card {
-        flex: 1 1 calc(50% - 20px);
-        max-width: 45%;
-        box-sizing: border-box;
-        background: #1e1e1e;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        color: white;
-        overflow: hidden;
-    }
-
-    .login-card h1 {
-        margin-bottom: 20px;
-    }
-
-    .signup-card h1 {
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        position: relative;
-        margin-bottom: 1.5rem;
-    }
-
-    input {
-        width: 100%;
-        box-sizing: border-box;
-    }
-</style>
-<br>
-<div class="login-container">
-    <!-- Python Login Form -->
-    <div class="login-card">
-        <h1 id="pythonTitle">User Login</h1>
-        <hr>
-        <form id="pythonForm" onsubmit="loginBoth(); return false;">
-            <div class="form-group">
-                <input type="text" id="uid" placeholder="GitHub ID" required>
-            </div>
-            <div class="form-group">
-                <input type="password" id="password" placeholder="Password" required>
-            </div>
-            <p>
-                <button type="submit" class="large primary submit-button">Login</button>
-            </p>
-            <p id="message" style="color: red;"></p>
-        </form>
+<main class="auth-main" id="main-content">
+    <div class="auth-intro">
+        <p class="eyebrow">A calm place to begin again</p>
+        <h1>Welcome to your <em>next step.</em></h1>
+        <p>Sign in to continue, or create an account to get started with Safe Passage Heals.</p>
     </div>
-    <div class="signup-card">
-        <h1 id="signupTitle">Sign Up</h1>
-        <hr>
-        <form id="signupForm" onsubmit="signup(); return false;">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="signupUid" placeholder="GitHub ID" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="signupSid" placeholder="Student ID" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="signupEmail" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <input type="password" id="signupPassword" placeholder="Password" required>
-            </div>
-            <p>
-                <label class="switch">
-                    <span class="toggle">
-                        <input type="checkbox" name="kasmNeeded" id="kasmNeeded">
-                        <span class="slider"></span>
-                    </span>
-                    <span class="label-text">Kasm Server Needed</span>
-                </label>
-
-            </p>
-            <p>
-                <button type="submit" class="large primary submit-button">Sign Up</button>
-            </p>
-            <p id="signupMessage" style="color: green;"></p>
-        </form>
+    <div class="auth-columns">
+        <section class="auth-card auth-login-card" aria-labelledby="pythonTitle">
+            <div class="card-heading"><div><h2 id="pythonTitle">Welcome back</h2><p>We’re glad you’re here. Sign in to continue.</p></div><span class="card-icon" aria-hidden="true">♡</span></div>
+            <form id="pythonForm" onsubmit="loginBoth(); return false;">
+                <div class="form-group"><label for="uid">Username</label><input type="text" id="uid" name="uid" placeholder="Enter your username" autocomplete="username" required></div>
+                <div class="form-group"><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required></div>
+                <button type="submit" class="ocs__btn large pill safe-passage-submit">Sign in <span aria-hidden="true">→</span></button>
+                <p id="message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+            <div class="security-note"><span aria-hidden="true">✳</span>Your information is used to support your account and program experience.</div>
+        </section>
+        <section class="auth-card auth-signup-card" aria-labelledby="signupTitle">
+            <div class="card-heading"><div><h2 id="signupTitle">Start your journey</h2><p>Create an account to get connected.</p></div><span class="card-icon" aria-hidden="true">✦</span></div>
+            <form id="signupForm" onsubmit="signup(); return false;">
+                <div class="form-grid">
+                    <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required></div>
+                    <div class="form-group"><label for="signupUid">Username</label><input type="text" id="signupUid" name="signupUid" placeholder="Choose a username" autocomplete="username" required></div>
+                    <div class="form-group"><label for="signupEmail">Email</label><input type="email" id="signupEmail" name="signupEmail" placeholder="you@example.com" autocomplete="email" required></div>
+                </div>
+                <div class="form-group"><label for="signupPassword">Create password</label><input type="password" id="signupPassword" name="signupPassword" placeholder="Create a password" autocomplete="new-password" required></div>
+                <button type="submit" class="ocs__btn large pill safe-passage-submit">Create account <span aria-hidden="true">→</span></button>
+                <p id="signupMessage" class="form-message signup-message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
     </div>
-</div>
+</main>
 <script type="module">
     import { login, pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api/config.js';
     // Function to handle both Python and Java login simultaneously
@@ -243,7 +173,7 @@ show_reading_time: false
             });
     }
     window.signup = function () {
-        const signupButton = document.querySelector(".signup-card button");
+        const signupButton = document.querySelector(".auth-signup-card button");
         // Disable the button and change its color
         signupButton.disabled = true;
         signupButton.classList.add("disabled");
@@ -256,7 +186,6 @@ show_reading_time: false
                 uid: document.getElementById("signupUid").value,
                 email: document.getElementById("signupEmail").value,
                 password: document.getElementById("signupPassword").value,
-                kasm_server_needed: document.getElementById("kasmNeeded").checked,
             }
         };
         const signupOptionsJava = {
@@ -268,12 +197,10 @@ show_reading_time: false
             }),
             body: JSON.stringify({
                 uid: document.getElementById("signupUid").value,
-                sid: document.getElementById("signupSid").value,
                 email: document.getElementById("signupEmail").value,
                 dob: "11-01-2024",  // Static date for now, you can modify this
                 name: document.getElementById("name").value,
                 password: document.getElementById("signupPassword").value,
-                kasmServerNeeded: document.getElementById("kasmNeeded").checked,
             })
         };
         fetch(signupOptionsJava.URL, signupOptionsJava)

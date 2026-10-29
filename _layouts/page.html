@@ -4,7 +4,7 @@ layout: opencs
 
 <article class="post">
 
-  <h2 class="post-title">{{ page.title | escape }}</h2>
+  {% unless page.hide_title %}<h2 class="post-title">{{ page.title | escape }}</h2>{% endunless %}
  
   <div class="post-content">
     {{ content }}
